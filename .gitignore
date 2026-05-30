@@ -1,0 +1,49 @@
+# Bytecode y archivos compilados de Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Entornos virtuales (aunque no los uses, por si alguien los prueba)
+.venv/
+venv/
+ENV/
+env/
+
+# Base de datos SQLite local (¡crítico!)
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/*.sqlite
+
+# Archivos de variables de entorno con secretos reales
+.env
+*.env
+!.env.example
+
+# Configuraciones locales de VS Code (prohibido subir)
+.vscode/
+*.code-workspace
+
+# Archivos temporales de Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de logs y métricas
+*.log
+*.csv   # (si exportas datos, no queremos basura local)
+*.xlsx
+
+# Archivos de caché de Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Archivos de configuración de herramientas de calidad (se generan localmente)
+.coverage
+htmlcov/
+
+# Archivos de datos de mapas (Folium puede descargar tiles, no subirlos)
+*.html    # los mapas generados no van al repo
+leaflet/
