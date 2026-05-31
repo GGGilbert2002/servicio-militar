@@ -1,0 +1,1 @@
+# Archivo vacío para que Python trate 'app' como un paquete
