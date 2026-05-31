@@ -84,7 +84,7 @@ sequenceDiagram
         end
     end
 ```
-### 4.
+### 4. Casos de uso de Sistema
 ```mermaid
 flowchart LR
     Actor((Operador))
@@ -102,9 +102,9 @@ flowchart LR
     Actor --> UC4
 
     UC4 -. "<<include>>" .-> UC3
-
+```
 ### 5. Diagrama de Flujo (Lógica de Registro)
-mermaid
+```mermaid
 flowchart TD
     A[Inicio] --> B[Clic en 'Registrar Recluta']
     B --> C[Abrir formulario]
