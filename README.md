@@ -5,7 +5,7 @@ Sistema de escritorio para el registro, análisis estadístico y mapeo territori
 ## 📐 Arquitectura del Sistema (Doc-as-Code)
 
 ### 1. Arquitectura de Componentes y Flujo de Datos
-mermaid
+```mermaid  
 graph TD
     A[Usuario] -->|Interacción| B[Interfaz CustomTkinter]
     B -->|Solicitudes| C[Controlador main.py]
@@ -28,10 +28,10 @@ graph TD
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style D fill:#bbf,stroke:#333
     style I fill:#9f9,stroke:#333
-
+```
 
 ### 2. Diagrama Entidad-Relación (Base de Datos)
-mermaid
+```mermaid
 erDiagram
     RECLUTA {
         INT id PK "Autoincremental"
@@ -52,9 +52,9 @@ erDiagram
         VARCHAR nombre "50, Unique"
     }
     PARROQUIA ||--o{ RECLUTA : "pertenece"
-
+```
 ### 3.Diagrama de Secuencia (Registro de Recluta)
-mermaid
+```mermaid
 sequenceDiagram
     actor Usuario
     participant GUI as Interfaz (CustomTkinter)
@@ -83,9 +83,9 @@ sequenceDiagram
             GUI ->> Usuario: messagebox.showinfo("Registrado correctamente")
         end
     end
-
+```
 ### 4.
-mermaid
+```mermaid
 flowchart LR
     Actor((Operador))
 
