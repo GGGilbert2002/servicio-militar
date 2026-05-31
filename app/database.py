@@ -30,7 +30,7 @@ Base = declarative_base()
 def init_db():
     """Crea todas las tablas definidas en los modelos."""
     # No es necesario importar Recluta, solo asegurar que modelos.py se haya cargado
-    from . import modelos  # Esto basta para registrar las clases en Base
+   
     Base.metadata.create_all(bind=engine)
 
 def get_session():
