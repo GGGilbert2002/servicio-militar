@@ -1,0 +1,44 @@
+name: CI - Validación de Código
+
+on:
+  pull_request:
+    branches: [ develop, main ]
+  push:
+    branches: [ develop ]  # opcional: también correr al pushear a develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest   # usamos Linux porque es más rápido y compatible
+    strategy:
+      matrix:
+        python-version: [ "3.12" ]   # misma versión que tienes local
+
+    steps:
+      # 1. Descargar el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Configurar Python (la versión especificada)
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # 3. Instalar dependencias (globalmente en el runner)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff pytest
+          pip install customtkinter sqlalchemy pandas matplotlib seaborn folium
+          # Si tienes un requirements.txt, puedes usar pip install -r requirements.txt
+
+      # 4. Ejecutar linter (ruff) para verificar estilo y errores
+      - name: Run linter (ruff)
+        run: |
+          ruff check . --output-format=github
+          # Si quieres también formato estricto: ruff format --check .
+
+      # 5. Ejecutar pruebas unitarias (pytest)
+      - name: Run unit tests
+        run: |
+          pytest tests/ -v --tb=short
